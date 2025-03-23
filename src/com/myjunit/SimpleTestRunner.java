@@ -36,13 +36,13 @@ public class SimpleTestRunner {
             URL packageURL = classLoader.getResource(packageName.replace(".", "/"));
 
             if (packageURL == null) {
-                System.out.println("❌ 无法找到包: " + packageName);
+                System.out.println(" 无法找到包: " + packageName);
                 return;
             }
 
             File directory = new File(packageURL.toURI());
             if (!directory.exists()) {
-                System.out.println("❌ 目录不存在: " + directory.getAbsolutePath());
+                System.out.println(" 目录不存在: " + directory.getAbsolutePath());
                 return;
             }
 
@@ -73,15 +73,15 @@ public class SimpleTestRunner {
                     try {
                         Object instance = testClass.getDeclaredConstructor().newInstance();
                         method.invoke(instance);
-                        System.out.println("✅ 成功: " + method.getName());
+                        System.out.println(" 成功: " + method.getName());
                         passed++;
                     } catch (Exception e) {
-                        System.out.println("❌ 失败: " + method.getName() + " -> " + e.getCause());
+                        System.out.println(" 失败: " + method.getName() + " -> " + e.getCause());
                         failed++;
                     }
                 }
             }
-            System.out.println("🌟 测试完成！类: " + className + "，通过: " + passed + "，失败: " + failed);
+            System.out.println("测试完成！类: " + className + "，通过: " + passed + "，失败: " + failed);
         } catch (Exception e) {
             e.printStackTrace();
         }

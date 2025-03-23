@@ -31,12 +31,12 @@ public class Assert {
      */
     public static void assertEquals(Object expected, Object actual) {
         if (expected == null && actual == null) {
-            return; // ✅ 期望值和实际值都为 null，测试通过
+            return; // 期望值和实际值都为 null，测试通过
         }
         if (expected == null || actual == null || !expected.equals(actual)) {
-            String errorMessage = "❌ 断言失败: 期望值 " + expected + "，但实际值是 " + actual;
+            String errorMessage = "断言失败: 期望值 " + expected + "，但实际值是 " + actual;
             errors.add(errorMessage);
-            throw new AssertionError(errorMessage); // ✅ 立即抛出 AssertionError
+            throw new AssertionError(errorMessage); // 立即抛出 AssertionError
         }
     }
 
@@ -48,7 +48,7 @@ public class Assert {
      */
     public static void assertTrue(boolean condition) {
         if (!condition) {
-            String errorMessage = "❌ 断言失败: 期望 true，但得到 false";
+            String errorMessage = "断言失败: 期望 true，但得到 false";
             errors.add(errorMessage);
             throw new AssertionError(errorMessage);
         }
@@ -62,7 +62,7 @@ public class Assert {
      */
     public static void assertFalse(boolean condition) {
         if (condition) {
-            String errorMessage = "❌ 断言失败: 期望 false，但得到 true";
+            String errorMessage = "断言失败: 期望 false，但得到 true";
             errors.add(errorMessage);
             throw new AssertionError(errorMessage);
         }
@@ -76,7 +76,7 @@ public class Assert {
      */
     public static void assertNotNull(Object object) {
         if (object == null) {
-            String errorMessage = "❌ 断言失败: 期望对象不为 null，但得到 null";
+            String errorMessage = "断言失败: 期望对象不为 null，但得到 null";
             errors.add(errorMessage);
             throw new AssertionError(errorMessage);
         }
@@ -90,7 +90,7 @@ public class Assert {
      */
     public static void assertNull(Object object) {
         if (object != null) {
-            String errorMessage = "❌ 断言失败: 期望 null，但得到 " + object;
+            String errorMessage = "断言失败: 期望 null，但得到 " + object;
             errors.add(errorMessage);
             throw new AssertionError(errorMessage);
         }
@@ -105,7 +105,7 @@ public class Assert {
      */
     public static void assertGreaterThan(Number actual, Number expected) {
         if (!(actual.doubleValue() > expected.doubleValue())) {
-            String errorMessage = "❌ 断言失败: 期望 " + actual + " > " + expected;
+            String errorMessage = "断言失败: 期望 " + actual + " > " + expected;
             errors.add(errorMessage);
             throw new AssertionError(errorMessage);
         }
@@ -120,7 +120,7 @@ public class Assert {
      */
     public static void assertLessThan(Number actual, Number expected) {
         if (!(actual.doubleValue() < expected.doubleValue())) {
-            String errorMessage = "❌ 断言失败: 期望 " + actual + " < " + expected;
+            String errorMessage = "断言失败: 期望 " + actual + " < " + expected;
             errors.add(errorMessage);
             throw new AssertionError(errorMessage);
         }
@@ -135,7 +135,7 @@ public class Assert {
      */
     public static void reportErrors() {
         if (!errors.isEmpty()) {
-            throw new AssertionError("❌ 测试失败:\n" + String.join("\n", errors));
+            throw new AssertionError("测试失败:\n" + String.join("\n", errors));
         }
     }
 }
